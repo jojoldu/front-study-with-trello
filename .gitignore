@@ -1,0 +1,5 @@
+/.idea
+sh.exe
+*.stackdump
+/bower_components
+/node_modules

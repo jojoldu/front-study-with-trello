@@ -1,0 +1,34 @@
+{
+  "name": "jquery-study-with-trello",
+  "version": "0.0.0",
+  "description": "Front & RestAPI Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jojoldu/front-study-with-trello.git"
+  },
+  "keywords": [
+    "jquery",
+    "mean",
+    "angular",
+    "node"
+  ],
+  "author": "https://groups.google.com/d/forum/front-end-study",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jojoldu/jquery-study/issues"
+  },
+  "homepage": "https://github.com/jojoldu/front-study-with-trello",
+  "dependencies": {
+    "body-parser": "~1.0.2",
+    "express": "~4.13.3",
+    "express-session": "^1.11.3",
+    "mongoskin": "~1.4.1",
+    "morgan": "~1.0.1",
+    "path": "^0.12.7",
+    "express-session": "~1.11.3"
+  }
+}

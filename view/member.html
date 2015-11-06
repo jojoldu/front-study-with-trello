@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <script type="text/javascript" src="../lib/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../js/board.js"></script>
+    
+    <title>글 목록</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">MyBoard</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">설정</a></li>
+            <li><a href="#">프로필</a></li>
+            <li><a href="#">도움말</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <label class="sr-only">(current)</label></a></li>
+            <li><a href="#">카테고리1</a></li>
+            <li><a href="#">카테고리2</a></li>
+            <li><a href="#">카테고리3</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="memberMain">
+          <h1 class="page-header">회원 목록</h1>
+          <div class="row">
+            <div class="pull-right">
+              <button type = "button" class="btn btn-primary" id="btnAdd">신규 등록</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped" id="tMember">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>E-Mail</th>
+                  <th>이름</th>
+                  <th>직업</th>
+                  <th>가입일</th>
+                  <th>수정일</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        
+          <div id="memberModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+            
+              <div class="modal-content">
+                
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title"> 회원 정보 </h4>
+                </div>
+              
+                <div class="modal-body">
+                  <form class="form-horizontal">
+
+                    <div class="form-group">
+                      <label for="inputEmail" class="col-md-2 control-label">Email</label>                
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputEmail">
+                      </div>     
+                    </div> 
+
+                    <div class="form-group">
+                      <label for="inputName" class="col-md-2 control-label">이름</label>                
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputName">
+                      </div>     
+                    </div> 
+
+                    <div class="form-group">
+                      <label for="inputJob" class="col-md-2 control-label">직업</label>                
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputJob">
+                      </div>     
+                    </div>
+
+                  </form>
+                </div>
+
+                <div class="modal-footer">
+                  <form class="form-inline">
+                    <button type="button" class="btn btn-success" id="btnSubmit"> 등록 </button>
+                    <button type="button" class="btn btn-default" id="btnClose"> 닫기 </button>  
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
