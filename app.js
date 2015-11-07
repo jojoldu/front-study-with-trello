@@ -176,11 +176,11 @@ app.get('/member/list', function(req, res){
 	//email이 root 일때
 
 
-	//회원목록
-	for(var i=0; i<users.length; i++){
-		userList.push(users);
-	}
-	res.send(userList);
+	// //회원목록
+	// for(var i=0; i<users.length; i++){
+	// 	userList.push(users);
+	// }
+	// res.send(userList);
 	res.sendFile(path.join(__dirname + '/view/member.html'));
 });
 
