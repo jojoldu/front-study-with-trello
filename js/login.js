@@ -31,6 +31,9 @@ var user = {
 		this.$el.find('#btnLogin').click(function(){
 			user.login();
 		});	
+		this.$el.find('#btnVisitor').click(function(){
+			user.visitor();
+		});	
 
 	},
 
@@ -162,5 +165,10 @@ var user = {
 				}
 			}
 		});	
+	},
+	visitor : function(){
+		
+		location.href=location.origin+'/visitor/list';
+				
 	}
 }
