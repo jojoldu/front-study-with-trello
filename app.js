@@ -169,7 +169,7 @@ app.get('/board/list', function(req, res){
 	res.sendFile(path.join(__dirname + '/view/board.html'));
 });
 
-app.get('/member', function(req, res){
+app.get('/member/list', function(req, res){
 	var loginUser = req.session.user,
 		userList = {};
 
@@ -181,6 +181,7 @@ app.get('/member', function(req, res){
 		userList.push(users);
 	}
 	res.send(userList);
+	res.sendFile(path.join(__dirname + '/view/member.html'));
 });
 
 app.listen(8080);
