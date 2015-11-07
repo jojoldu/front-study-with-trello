@@ -169,5 +169,10 @@ app.get('/board/list', function(req, res){
 	res.sendFile(path.join(__dirname + '/view/board.html'));
 });
 
+app.get('/visitor/list', function(req, res){
+	
+	res.sendFile(path.join(__dirname + '/view/visitor.html'));
+});
+
 app.listen(8080);
 console.log('Express Listening on port 8080...');
