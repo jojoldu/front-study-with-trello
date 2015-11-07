@@ -110,15 +110,14 @@
           <h1 class="page-header">글 목록</h1>
           <div class="row">
             <div class="pull-right">
-              <button type = "button" class="btn btn-primary" data-toggle="collapse" data-target="#new_board" aria-expanded="false" aria-controls="collapseExample" id="btn_board_add">작성</button>
+              
             </div>
           </div>
           <div class="row">
             <div class="collapse" id="new_board">
-              <textarea class="form-control" rows="3" id="board_content"></textarea>
+   
               <form class="form-inline">
-                <button type="button" class="btn btn-success pull-right" id="btn_board_submit"> 등록 </button>
-                <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#new_board" aria-expanded="false" aria-controls="collapseExample" id="btn_board_close"> 닫기 </button> 
+        
               </form>
             </div>
           </div>
@@ -127,7 +126,7 @@
               <table class="table table-striped" id="tboard">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th>번호</th>
                     <th>제목</th>
                     <th>내용</th>
                     <th>작성자</th>
@@ -135,9 +134,66 @@
                     <th>조회</th>
                   </tr>
                 </thead>
-                <tbody>
+                
+				<tfoot>
+				 <tr>
+					<th>1</th>
+					<th>없음</th>
+					<th>프론트스터디</th>
+					<th>종희</th>
+					<th>1107</th>
+					<th>1</th>
+				 </tr>
+				 <tr>
+					<th>2</th>
+					<th>없음</th>
+					<th>프론트스터디</th>
+					<th>종희</th>
+					<th>1107</th>
+					<th>1</th>
+				 </tr>
+				 <tr>
+					<th>3</th>
+					<th>없음</th>
+					<th>프론트스터디</th>
+					<th>종희</th>
+					<th>1107</th>
+					<th>1</th>
+				 </tr>
+				 <tr>
+					<th>4</th>
+					<th>없음</th>
+					<th>프론트스터디</th>
+					<th>종희</th>
+					<th>1107</th>
+					<th>1</th>
+				 </tr>
+				 <tr>
+					<th>5</th>
+					<th>없음</th>
+					<th>프론트스터디</th>
+					<th>종희</th>
+					<th>1107</th>
+					<th>1</th>
+				 </tr>
+				 <tr>
+					<th>6</th>
+					<th>없음</th>
+					<th>프론트스터디</th>
+					<th>종희</th>
+					<th>1107</th>
+					<th>1</th>
+				 </tr>
+				 
+				</tfoot>
+				<tbody>
+					
                 </tbody>
               </table>
+			  <div class="button123">
+				<button type = "button" class="btn btn-primary" data-toggle="collapse" data-target="#new_board" aria-expanded="false" aria-controls="collapseExample" id="btn_board_add">글쓰기</button>
+				<button type = "button" class="btn btn-primary" data-toggle="collapse" data-target="#new_board" aria-expanded="false" aria-controls="collapseExample" id="btn_board_add">삭제</button>
+			  </div>
             </div>
           </div>
         </div>
