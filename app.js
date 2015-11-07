@@ -171,7 +171,7 @@ app.get('/board/list', function(req, res){
 
 app.get('/member/list', function(req, res){
 	var loginUser = req.session.user,
-		userList = {};
+		userList = [];
 
 	//email이 root 일때
 
