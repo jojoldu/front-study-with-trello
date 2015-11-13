@@ -169,19 +169,40 @@ app.get('/board/list', function(req, res){
 	res.sendFile(path.join(__dirname + '/view/board.html'));
 });
 
+app.get('/member', function(req, res){
+	if(!req.session.user){
+		res.redirect('/');
+	}
+	res.sendFile(path.join(__dirname + '/view/member.html'));
+});
+
 app.get('/member/list', function(req, res){
 	var loginUser = req.session.user,
 		userList = [];
 
 	//email이 root 일때
+	if(loginUser.email == 'root'){
 
+	}
 
-	// //회원목록
-	// for(var i=0; i<users.length; i++){
-	// 	userList.push(users);
-	// }
-	// res.send(userList);
-	res.sendFile(path.join(__dirname + '/view/member.html'));
+	//회원목록
+	for(var i=0; i<users.length; i++){
+		userList.push(users[i]);
+	}
+	res.send(userList);
+});
+
+app.post('/member/info', function(req, res){
+	var obj = req.body,
+		result = {};
+
+	for(var i=0; i<users.length; i++){
+		if(obj.email === users[i].email){
+			result.user = users[i];
+			break;
+		}
+	}
+	res.send(result);
 });
 
 app.listen(8080);
