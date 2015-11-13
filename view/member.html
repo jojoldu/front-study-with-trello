@@ -1,118 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+		<meta charset="UTF-8">
 
-    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 
-    <script type="text/javascript" src="../lib/jquery/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="../js/board.js"></script>
-    
-    <title>글 목록</title>
+		<link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+		<link rel="stylesheet" type="text/css" href="../css/member.css">
+
+		<script type="text/javascript" src="../js/board.js"></script>
+		<script type="text/javascript" src="../js/member.js"></script>
+		<script type="text/javascript" src="../js/gnb.js"></script>
+		<title>글 목록</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">MyBoard</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">설정</a></li>
-            <li><a href="#">프로필</a></li>
-            <li><a href="#">도움말</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-      </div>
-    </nav>
+	<div id="gnb">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">MyBoard</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#" type="button" id="btn_config">설정</a></li>
+						<li><a href="#" type="button" id="btn_profile">프로필</a></li>
+						<li><a href="#" type="button" id="btn_help">도움말</a></li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<input type="text" class="form-control" placeholder="Search...">
+					</form>
+				</div>
+			</div>
+		</nav>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <label class="sr-only">(current)</label></a></li>
-            <li><a href="#">카테고리1</a></li>
-            <li><a href="#">카테고리2</a></li>
-            <li><a href="#">카테고리3</a></li>
-          </ul>
-        </div>
+		<div id="profile_modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="memberMain">
-          <h1 class="page-header">회원 목록</h1>
-          <div class="row">
-            <div class="pull-right">
-              <button type = "button" class="btn btn-primary" id="btnAdd">신규 등록</button>
-            </div>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-striped" id="tMember">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>E-Mail</th>
-                  <th>이름</th>
-                  <th>직업</th>
-                  <th>가입일</th>
-                  <th>수정일</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-        
-          <div id="memberModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-            
-              <div class="modal-content">
-                
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title"> 회원 정보 </h4>
-                </div>
-              
-                <div class="modal-body">
-                  <form class="form-horizontal">
+				<div class="modal-content">
 
-                    <div class="form-group">
-                      <label for="inputEmail" class="col-md-2 control-label">Email</label>                
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputEmail">
-                      </div>     
-                    </div> 
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"> 회원정보 수정 </h4>
+					</div>
 
-                    <div class="form-group">
-                      <label for="inputName" class="col-md-2 control-label">이름</label>                
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputName">
-                      </div>     
-                    </div> 
+					<div class="modal-body">
+						<form class="form-horizontal">
 
-                    <div class="form-group">
-                      <label for="inputJob" class="col-md-2 control-label">직업</label>                
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputJob">
-                      </div>     
-                    </div>
+							<div class="form-group">
+								<label for="email" class="col-md-2 control-label">Email</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control sign_forms" id="my_email" disabled>
+								</div>
+							</div>
 
-                  </form>
-                </div>
+							<div class="form-group">
+								<label for="originPassword" class="col-md-2 control-label">Origin Password</label>
+								<div class="col-md-10">
+									<input type="password" class="form-control sign_forms" id="my_origin_password">
+								</div>
+							</div>
 
-                <div class="modal-footer">
-                  <form class="form-inline">
-                    <button type="button" class="btn btn-success" id="btnSubmit"> 등록 </button>
-                    <button type="button" class="btn btn-default" id="btnClose"> 닫기 </button>  
-                  </form>
-                </div>
+							<div class="form-group">
+								<label for="newPassword" class="col-md-2 control-label">New Password</label>
+								<div class="col-md-10">
+									<input type="password" class="form-control sign_forms" id="my_new_password">
+								</div>
+							</div>
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+							<div class="form-group">
+								<label for="name" class="col-md-2 control-label">이름</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control sign_forms" id="my_name">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="job" class="col-md-2 control-label">직업</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control sign_forms" id="my_job">
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<form class="form-inline">
+							<button type="button" class="btn btn-success" id="btn_profile_submit"> 수정 </button>
+							<button type="button" class="btn btn-default" id="btn_profile_close"> 닫기 </button>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+					<ul class="nav nav-sidebar">
+						<li><a href="/board/list">Overview <label class="sr-only">(current)</label></a></li>
+						<li><a href="#">카테고리1</a></li>
+						<li><a href="#">카테고리2</a></li>
+						<li class="active"><a href="/member">회원정보</a></li>
+					</ul>
+				</div>
+
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="member_main">
+					<h1 class="page-header">회원정보</h1>
+					<div class="row">
+						<div class="collapse" id="new_board">
+							<textarea class="form-control" rows="3" id="board_content"></textarea>
+							<form class="form-inline">
+								<button type="button" class="btn btn-success pull-right" id="btn_board_submit"> 등록 </button>
+								<button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#new_board" aria-expanded="false" aria-controls="collapseExample" id="btn_board_close"> 닫기 </button>
+							</form>
+						</div>
+					</div>
+					<div class="row">
+						<div class="table-responsive">
+							<table class="table table-striped" id="tboard">
+								<col width="100" />
+								<col />
+								<col width="300">
+								<thead>
+									<tr>
+										<th scope="col">순서</th>
+										<th>이메일</th>
+										<th>가입일</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 </body>
