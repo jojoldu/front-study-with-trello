@@ -14,7 +14,7 @@ var member = {
 
 		$.ajax({
 			method: 'GET',
-			url: '/member/list',
+			url: '/member',
 			dataType: 'json',
 			success: function(data){
 
@@ -23,6 +23,7 @@ var member = {
 
 				_.$el.on('click', '.member_info', function(){
 					var email = $(this).attr('id');
+					_.resetModal();
 					_.getMember(email);
 				});
 			}
@@ -82,14 +83,26 @@ var member = {
 			data: obj,
 			dataType: 'json',
 			success: function(result){
-				var member = result.user;
+				var member = result.user,
+					admin = result.admin;
+				
 				_.$el.find('#my_email').val(member.email);
 				_.$el.find('#my_name').val(member.name);
 				_.$el.find('#my_job').val(member.job);
 				_.$el.find('#profile_modal').modal();
+
+				if(!admin){
+					_.$el.find('.modal-footer').hide();
+				}
+
 				return false;
 			}
 		});
+	},
+
+	resetModal : function(){
+		var _ = this;
+		_.$el.find('.sign_forms').val('');
 	}
 
 }
