@@ -169,22 +169,15 @@ app.get('/board/list', function(req, res){
 	res.sendFile(path.join(__dirname + '/view/board.html'));
 });
 
-app.get('/member', function(req, res){
+app.get('/member/list', function(req, res){
 	if(!req.session.user){
 		res.redirect('/');
 	}
 	res.sendFile(path.join(__dirname + '/view/member.html'));
 });
 
-app.get('/member/list', function(req, res){
-	var loginUser = req.session.user,
-		userList = [];
-
-	//email이 root 일때
-	if(loginUser.email == 'root'){
-
-	}
-
+app.get('/member', function(req, res){
+	var userList = [];
 	//회원목록
 	for(var i=0; i<users.length; i++){
 		userList.push(users[i]);
@@ -193,7 +186,8 @@ app.get('/member/list', function(req, res){
 });
 
 app.post('/member/info', function(req, res){
-	var obj = req.body,
+	var loginUser = req.session.user,
+		obj = req.body,
 		result = {};
 
 	for(var i=0; i<users.length; i++){
@@ -202,6 +196,11 @@ app.post('/member/info', function(req, res){
 			break;
 		}
 	}
+
+	if(loginUser.email == 'root'){
+		result.admin = true;
+	}
+
 	res.send(result);
 });
 
