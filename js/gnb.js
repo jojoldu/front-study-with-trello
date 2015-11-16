@@ -20,6 +20,10 @@ var gnb = {
 		_.$el.find('#btn_profile_submit').click(function(){
 			_.saveProfile();
 		});
+
+		_.$el.find('#btn_logout').click(function(){
+			_.logout();
+		});
 	},
 
 	showModal : function(){
@@ -82,5 +86,22 @@ var gnb = {
 				return false;
 			}
 		});
+	},
+
+	logout : function(){
+		var _ = this;
+
+		$.ajax({
+			method: 'GET',
+			url: '/logout',
+			dataType: 'json',
+			success: function(resultSession){
+				if(!resultSession){
+					location.href=location.origin+'/';
+				}
+				return false;
+			}
+		});
 	}
+
 }
